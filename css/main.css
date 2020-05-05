@@ -1,6 +1,61 @@
 /* ==========================================================================
    Your custom CSS styles
    ========================================================================== */
+:root{
+    --orange: #ff5722;
+}
+
+
+.bg-dark{ background: #000;}
+.bg-orange{ background: var(--orange);}
+
+
+
+
+
+.toolbars{
+    position: relative;
+    width: 100%;
+}
+    .toolbars ul{ 
+        list-style: none;
+        margin: 0;
+     }
+    .toolbars .icon{ width: 30px;}
+
+
+
+
+/*Position*/
+.bottom{
+    position: absolute; 
+    bottom: 0 !important;
+}
+
+.top{ top: 0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16,7 +71,6 @@
 @media only screen and (max-width: 480px) {
     /* insert styles here */
 }
-
 
 
 
