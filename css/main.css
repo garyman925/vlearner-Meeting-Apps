@@ -3,38 +3,179 @@
    ========================================================================== */
 :root{
     --orange: #ff5722;
+    --darkblue: #273c5d;
 }
 
+/*Global*/
+html{ overflow: hidden; }
+html,body,.wrapper{ height: 100%; }
 
-.bg-dark{ background: #000;}
+
+/*Layout*/
+.wrapper{ display: grid; }
+
+    .wrapper[data-status="open-half"]{
+        grid-template-columns: 80% auto;
+    }
+    .wrapper[data-status="open-full"]{
+        grid-template-columns: 100% auto;
+    }
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    background: var(--darkblue);
+    height: 100%;
+}
+
+/*Color BG*/
 .bg-orange{ background: var(--orange);}
 
 
-
-
-
+/*Toolbar*/
 .toolbars{
     position: relative;
     width: 100%;
+    background: linear-gradient(180deg, #fb784f, #ff511a);
 }
     .toolbars ul{ 
+        display: flex;
+        flex-direction: row;
         list-style: none;
         margin: 0;
+        padding: 0;
+        line-height: 20px;
      }
-    .toolbars .icon{ width: 30px;}
+
+    .toolbars .icon{ 
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            padding: 14px;
+        }
+
+        .toolbars .icon:hover{
+            background: #ff6c3e;
+        }
+
+    .toolbars .icon img{
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin: 0 auto;
+    }
+
+      .toolbars .icon i{
+          font-style: normal;
+          color: #fff;
+          font-size: .9rem;
+      }
 
 
 
-
-/*Position*/
-.bottom{
-    position: absolute; 
-    bottom: 0 !important;
+/*Rows*/
+.top-rows{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
-.top{ top: 0}
+    /*1.6: 1 ratio*/
+    .top-rows div{
+        position: relative;
+        width: 250px;
+        height: 100%;
+        }
+
+         .top-rows div img{ width: 100%; }
+
+    .top-rows .rows-item .pp-name{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #232323;
+        color: white;
+        font-size: 13px;
+        padding: 4px 10px;
+        letter-spacing: .5px;
+        font-family: unset;
+    }
+
+            .top-rows .rows-item .pp-name .icon{
+                height: 18px;
+                width: 18px;
+                vertical-align: middle;
+            }
 
 
+
+
+.main-rows{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+}
+
+
+/*Sider*/
+aside.sider{
+    width: 100%;
+    background: #274575;
+}   
+
+    .sider .header{
+        padding: 10px;
+        margin: 0;
+        color: #fff;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    }
+
+    .sider ul{ 
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    .sider .pp-single{
+        display: flex;
+        font-size: 0.85rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 16px 7px;
+        letter-spacing: .5px;    
+    }
+
+    .sider .pp-single img{ 
+        width: 20px;
+        height: 20px;
+
+    }
+
+    .sider .pp-single .pp-name{
+        margin-left: 6px;
+        white-space: nowrap;
+    }
+
+    .sider .pp-single .pp-tools{
+        margin-left: auto;
+    }
+
+
+    aside.sider[data-device="mobile"]{
+        position: absolute;
+        height: 100%;
+    }
+
+/*Position*/
+.fixed-bottom{
+    position: fixed; 
+    bottom: 0 !important;
+}
 
 
 
