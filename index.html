@@ -10,13 +10,12 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/html5-boilerplate.css">
 
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/main.css">
     </head>
 
-    <body>
-        <div class="wrapper" data-status="open-half">
+    <body data-devices="desktop">
+        <div class="wrapper">
 
         <main class="main">
         <div class="top-rows">
@@ -48,11 +47,11 @@
         </div>
 
         <div class="main-rows">
-            <div>
-                <img src="https://images.techhive.com/images/article/2013/09/webcam-dont-100053322-large.jpg">
+            <div style="width: 50%;" class="is-focus speaker">
+                <img src="https://ak.picdn.net/shutterstock/videos/1034168777/thumb/3.jpg" style="width: 100%;">
             </div>
-            <div>
-                <img src="https://cdn8.dissolve.com/p/D18_261_054/D18_261_054_0004_600.jpg">
+            <div style="width: 50%;" class="is-focus speaker">
+                <img src="https://cdn8.dissolve.com/p/D18_261_054/D18_261_054_0004_600.jpg" style="width: 100%;">
             </div>
         </div>
 
@@ -79,31 +78,35 @@
                     <img src="images/icon_share.svg" width="100%">
                     <i>Sharescreen</i>
                 </li>
+                <li class="icon" id="pp_list">
+                    <img src="images/icon_pp.svg" width="100%">
+                    <i>Participants</i>
+                </li>
                 <li class="icon">
                     <img src="images/icon_lock.svg" width="100%">
                     <i>Lock</i>
                 </li>
-                <li class="icon">
+                <!-- <li class="icon">
                     <img src="images/icon_lockscreen.svg" width="100%">
                     <i>Lock Screen</i>
-                </li>
+                </li> -->
             </ul>
             </div>
         </main>
 
 
-        <aside class="sider" data-device="mobile">
+        <aside class="sider" data-mobile-views="off">
             
             <p class="header">
-                <span>
-                    <img src="images/icon_left.svg" width="20">
+                <span class="nav-back" data-mobile-nav="back">
+                    <img src="images/icon_left.svg" width="10" height="10" style="vertical-align: middle;">
                     </span>
-                Participants (5)
+                &nbsp;Participants (5)
             </p>
 
             <ul class="pp-list">
                 <li class="pp-single">
-                    <img src="images/icon_pp_single.svg">
+                    <!-- <img src="images/icon_pp_single.svg"> -->
                     <span class="pp-name">Cheung Tai Chi</span>
                     <div class="pp-tools">
                         <img src="images/icon_soundoff.svg">
@@ -112,7 +115,7 @@
                   </li>
 
                   <li class="pp-single">
-                    <img src="images/icon_pp_single.svg">
+                    <!-- <img src="images/icon_pp_single.svg"> -->
                     <span class="pp-name">Cheung Tai Chi</span>
                     <div class="pp-tools">
                         <img src="images/icon_soundoff.svg">
@@ -121,7 +124,7 @@
                 </li>
 
                 <li class="pp-single">
-                    <img src="images/icon_pp_single.svg">
+                    <!-- <img src="images/icon_pp_single.svg"> -->
                     <span class="pp-name">Cheung Tai Chi</span>
                     <div class="pp-tools">
                         <img src="images/icon_soundoff.svg">
@@ -130,7 +133,7 @@
                 </li>
 
                 <li class="pp-single">
-                    <img src="images/icon_pp_single.svg">
+                    <!-- <img src="images/icon_pp_single.svg"> -->
                     <span class="pp-name">Cheung Tai Chi</span>
                     <div class="pp-tools">
                         <img src="images/icon_soundoff.svg">

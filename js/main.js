@@ -1,26 +1,60 @@
+//
+function screenSizeInit(){
+    if (window.matchMedia('screen and ( min-width: 1024px ) ').matches) {
+        $('body').attr("data-devices","desktop");
+        //$('.wrapper').addClass('wrapper-100');
+    }
 
-$('#test-btn').on('click',function(){
+    else if (window.matchMedia('screen and (min-width: 576px) and (max-width: 768px) ').matches) {
+        $('body').attr("data-devices","ipad");
+        //$('.wrapper').addClass('wrapper-100');
+    }
 
-    var wrap = $('.wrapper'),
-        wrapAttr = wrap.attr("data-status");
+    else if (window.matchMedia('screen and (max-width: 576px)').matches) {
+        $('body').attr("data-devices","mobile");
+        //$('.wrapper').addClass('wrapper-100');
+    }
+}
 
-    if( wrapAttr === "open-half" ){
-        wrap.attr('data-status','open-full');
-    }else{
-        wrap.attr('data-status','open-half');
+$(function(){
+    screenSizeInit();
+
+    $(window).resize(function() {
+        screenSizeInit();
+    });
+
+})
+
+
+//Show Participants List
+$('#pp_list').on('click',function(){
+    
+    if( $('body').attr("data-devices") === "mobile"){
+            $('aside.sider').attr("data-mobile-views","on");
+        }
+    else if( $('body').attr("data-devices") === "ipad"){
+        $('aside.sider').attr("data-mobile-views","on");
+    }
+    else if( $('body').attr("data-devices") === "desktop"){
+         return;
     }
 
 })
 
-$(window).resize(function() {
-    
-    var wrap = $('.wrapper'),
-    wrapAttr = wrap.attr("data-status");
+//Mobile Views Navigation 
+$(function(){
+    $('[data-mobile-nav="back"]').on('click',function(){
+        $('[data-mobile-views]').attr("data-mobile-views","off");
+    })
+})
 
-    //Screen > 992px
-    if (window.matchMedia('screen and (min-width: 1025px)').matches) {
-        wrap.attr('data-status','open-half');
-    }else{
-        wrap.attr('data-status','open-full');
-    }
-});
+
+
+
+
+
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    // some code..
+
+}

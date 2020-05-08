@@ -4,6 +4,7 @@
 :root{
     --orange: #ff5722;
     --darkblue: #273c5d;
+    --lightgreen: #65ffdb;
 }
 
 /*Global*/
@@ -12,20 +13,28 @@ html,body,.wrapper{ height: 100%; }
 
 
 /*Layout*/
-.wrapper{ display: grid; }
-
-    .wrapper[data-status="open-half"]{
-        grid-template-columns: 80% auto;
-    }
-    .wrapper[data-status="open-full"]{
+.wrapper{ 
+        display: grid; 
         grid-template-columns: 100% auto;
     }
+
+    .wrapper-80{ grid-template-columns: 80% auto; }
+    .wrapper-100{ grid-template-columns: 100% auto; }
+    
+
+    [data-devices="desktop"] .wrapper{
+        grid-template-columns: 80% auto;
+    }
+
+    [data-devices="mobile"] .wrapper{
+         grid-template-columns: 100% auto;
+     }
 
 
 .main{
     display: flex;
     flex-direction: column;
-    background: var(--darkblue);
+    background: linear-gradient(180deg,#182b4a, #101c2f,#1155bd);
     height: 100%;
 }
 
@@ -37,15 +46,16 @@ html,body,.wrapper{ height: 100%; }
 .toolbars{
     position: relative;
     width: 100%;
-    background: linear-gradient(180deg, #fb784f, #ff511a);
 }
     .toolbars ul{ 
+        line-height: .5em;
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         list-style: none;
         margin: 0;
         padding: 0;
-        line-height: 20px;
+        overflow-x: auto;
      }
 
     .toolbars .icon{ 
@@ -60,10 +70,11 @@ html,body,.wrapper{ height: 100%; }
         }
 
     .toolbars .icon img{
-        width: 30px;
+        width: 100%;
         height: 30px;
         display: block;
         margin: 0 auto;
+        margin-bottom: 5px;
     }
 
       .toolbars .icon i{
@@ -96,19 +107,17 @@ html,body,.wrapper{ height: 100%; }
         left: 0;
         background: #232323;
         color: white;
-        font-size: 13px;
-        padding: 4px 10px;
+        font-size: .8rem;
+        padding: 0px 4px;
         letter-spacing: .5px;
         font-family: unset;
     }
 
             .top-rows .rows-item .pp-name .icon{
-                height: 18px;
-                width: 18px;
+                height: 15px;
+                width: 15px;
                 vertical-align: middle;
             }
-
-
 
 
 .main-rows{
@@ -117,16 +126,64 @@ html,body,.wrapper{ height: 100%; }
     flex-direction: row;
     justify-content: center;
     margin: auto;
+    padding: 10px;
 }
 
 
-/*Sider*/
+
+/*Animation Elements*/
+.is-focus{
+    box-shadow: 0 0 0px 1px var(--lightgreen);
+    z-index: 3;
+    animation-name: is-focus;
+    animation-duration:.5s;
+    animation-iteration-count: 5;
+}
+
+@keyframes is-focus{
+  from {  box-shadow: 0 0 0px 1px transparent; }
+  to {  box-shadow: 0 0 0px 1px var(--lightgreen); }
+}
+
+
+/*Sider , aside*/
+body[data-devices="desktop"] .sider{
+    position: relative;
+    transform: translateX(0%);
+}
+
+body[data-devices="ipad"] .sider{
+    position: absolute;
+    width: 100%;
+    /* transform: translateX(100vw); */
+}
+  
+body[data-devices="mobile"] .sider{
+    position: absolute;
+    width: 100vw;
+    /* transform: translateX(100%); */
+}
+
+/*Mobile Situation*/
+[data-mobile-views="on"]{
+    transform: translateX(0%);
+}
+
+[data-mobile-views="off"]{
+    transform: translateX(100%);
+}
+
 aside.sider{
     width: 100%;
-    background: #274575;
+    height: 100%;
+    display: block;
+    z-index: 1000;
+    background: linear-gradient(180deg, var(--darkblue) 30%, #1e5ab9);
+    transition: .3s;
 }   
 
     .sider .header{
+        display: flex;
         padding: 10px;
         margin: 0;
         color: #fff;
@@ -145,9 +202,9 @@ aside.sider{
     .sider .pp-single{
         display: flex;
         font-size: 0.85rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 16px 7px;
-        letter-spacing: .5px;    
+        padding: 16px 7px;  
+        box-shadow: 0 1px 0px 0px #335d9a;
+
     }
 
     .sider .pp-single img{ 
@@ -166,31 +223,11 @@ aside.sider{
     }
 
 
-    aside.sider[data-device="mobile"]{
-        position: absolute;
-        height: 100%;
-    }
-
 /*Position*/
 .fixed-bottom{
     position: fixed; 
     bottom: 0 !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
